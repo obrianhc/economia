@@ -5,6 +5,7 @@
  */
 package proyectoeconomia;
 
+import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -29,11 +30,13 @@ public class Window extends javax.swing.JFrame {
     private double e;
     private double f;
     private double m;
+    private Graphics g;
     /**
      * Creates new form Window
      */
     public Window() {
         initComponents();
+        g = this.canvas1.getGraphics();
     }
 
     /**
@@ -133,20 +136,26 @@ public class Window extends javax.swing.JFrame {
         this.e = ingD.e;
         this.f = ingD.f;
         this.m = ingD.m;
-        this.drawCanvas((int)a, (int)b);
+        this.drawCanvas();
+        this.curvaDemanda();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
     
-    private void drawCanvas(int x, int y){
-        Graphics g = this.canvas1.getGraphics();
+    private void curvaDemanda(){
+        g.setColor(Color.red);
+        g.drawLine(30, (int)a, (int)b, 500);
+    }
+    
+    private void drawCanvas(){
         // Dibujando el plano de coordenadas
+        g.setColor(Color.black);
         // Dibujando el eje y
-        g.drawLine(10, 10, 10, y);
+        g.drawLine(30, 10, 30, 500);
         // Dibujando el eje x
-        g.drawLine(10, y, x, y);
+        g.drawLine(30, 500, 650, 500);
     }
     
     /**
