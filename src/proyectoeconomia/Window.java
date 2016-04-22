@@ -158,50 +158,50 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
     
     private void curvaDemanda(double x, double m){
-        // x = a - bm
-        // Los datos que interesan son a y m, solo esos se debe usar para trazar la funcion
-        // cuando b = 0; x = a;
-        // cuando x = 0; b = a/m;
-        // Calculando la escala del eje x
-        // int intervalox = this.redimX((int)x)/31;
-        // Calculando la escala del eje y
-        // int intervaloy = this.redimY((int)y)/24;
         double y = x / m;
         g.setColor(Color.red);
-        g.drawLine((int)this.redimX(0), (int)this.redimY(y),
-                (int)this.redimX(x), (int)this.redimY(0));
+        this.lineaSimple(this.redimX(0), this.redimY(y), this.redimX(x), this.redimY(0));
         g.setColor(Color.black);
     }
     
-    private void IngresoMarginal(){
-        for(int x = 31; x <= 650; x++){
-            for(int y = 11; y <= 500; y++){
-                Point actual = new Point();
-                actual.x = x;
-                actual.y = y;
-                actual = this.redim(actual);
+    private void IngresoTotal(){
+        double fy1 = 0;
+        double fx1 = 0;
+        double fy2 = 0;
+        double fx2 = 0;
+        double p = this.a / this.m;
+        g.setColor(Color.orange);
+        for(int x = 2; x <= this.a; x+=2){
+            for(int y = 2; y <= this.b; y+=2){
+                fx1 = this.a - p * (y - 2);
+                fy1 = (x - 2) * fx1;
+                fx2 = this.a - p * y;
+                fy2 = x * fx2;
+                this.lineaSimple(redimX(x-2), redimY(fy1), redimX(x), redimY(fy2));
             }
         }
+        g.setColor(Color.black);
     }
     
-    private void lineaSimple(Point punto1, Point punto2){
-        g.drawLine(punto1.x, punto1.y, punto2.x, punto2.y);
+    private void IngresoMarginal(double y){
+        double x = (31 * this.b) / this.a;
+        g.setColor(Color.blue);
+        this.lineaSimple(this.redimX(0), this.redimY(y), this.redimX(x), this.redimY(0));
+        g.setColor(Color.black);
+    }
+    
+    private void lineaSimple(double x1, double y1, double x2, double y2){
+        g.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
+        System.out.println("x1:" + (int)x1 + " y1:" + (int)y1 + " x2:" + (int)x2 + " y2:" + (int)y2);
     }
     
     private void drawCanvas(){
         // Dibujando el plano de coordenadas
-        g.setColor(Color.black);
+        g.setColor(Color.black);        
         // Dibujando el eje y
         g.drawLine(30, 10, 30, 500);
         // Dibujando el eje x
         g.drawLine(30, 500, 650, 500);
-    }
-    
-    private Point redim(Point punto){
-        punto.x = punto.x - this.diferenciax;
-        punto.y = (punto.y - this.diferenciay) - 490;
-        System.out.println("x: " + punto.x + "y: " + punto.y);
-        return punto;
     }
     
     private double redimX(double x){
@@ -209,7 +209,7 @@ public class Window extends javax.swing.JFrame {
     }
     
     private double redimY(double y){
-        return this.corrY - (490 / this.b)*y;
+        return this.corrY - (490 / (this.a/2 * this.b*2))*y;
     }
     
     /**
