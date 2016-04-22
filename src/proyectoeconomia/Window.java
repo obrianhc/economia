@@ -8,6 +8,7 @@ package proyectoeconomia;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import java.util.HashMap;
 /**
  *
  * @author asus
@@ -31,12 +33,17 @@ public class Window extends javax.swing.JFrame {
     private double f;
     private double m;
     private Graphics g;
+    private int diferenciax;
+    private int diferenciay;
+    private HashMap datos;
     /**
      * Creates new form Window
      */
     public Window() {
         initComponents();
+        this.datos = new HashMap();
         g = this.canvas1.getGraphics();
+        this.setTitle("Economía");
     }
 
     /**
@@ -136,17 +143,37 @@ public class Window extends javax.swing.JFrame {
         this.e = ingD.e;
         this.f = ingD.f;
         this.m = ingD.m;
+        this.diferenciay = (int)(this.a - 500);
+        this.diferenciax = (int)(this.b - 650);
         this.drawCanvas();
-        this.curvaDemanda();
+        Point demanda = new Point();
+        demanda.x = (int)this.b;
+        demanda.y = (int)this.a;
+        this.curvaDemanda(this.redim(demanda));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
     
-    private void curvaDemanda(){
+    private void curvaDemanda(Point punto){
         g.setColor(Color.red);
-        g.drawLine(30, (int)a, (int)b, 500);
+        g.drawLine(30, punto.y, punto.x, 500);
+    }
+    
+    private void IngresoMarginal(){
+        for(int x = 31; x <= 650; x++){
+            for(int y = 11; y <= 500; y++){
+                Point actual = new Point();
+                actual.x = x;
+                actual.y = y;
+                actual = this.redim(actual);
+            }
+        }
+    }
+    
+    private void lineaSimple(Point punto1, Point punto2){
+        g.drawLine(punto1.x, punto1.y, punto2.x, punto2.y);
     }
     
     private void drawCanvas(){
@@ -156,6 +183,13 @@ public class Window extends javax.swing.JFrame {
         g.drawLine(30, 10, 30, 500);
         // Dibujando el eje x
         g.drawLine(30, 500, 650, 500);
+    }
+    
+    private Point redim(Point punto){
+        punto.x = punto.x - this.diferenciax;
+        punto.y = (punto.y - this.diferenciay) - 490;
+        System.out.println("x: " + punto.x + "y: " + punto.y);
+        return punto;
     }
     
     /**
