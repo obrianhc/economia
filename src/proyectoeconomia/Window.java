@@ -36,6 +36,8 @@ public class Window extends javax.swing.JFrame {
     private int diferenciax;
     private int diferenciay;
     private HashMap datos;
+    private int corrX;
+    private int corrY;
     /**
      * Creates new form Window
      */
@@ -44,6 +46,8 @@ public class Window extends javax.swing.JFrame {
         this.datos = new HashMap();
         g = this.canvas1.getGraphics();
         this.setTitle("Economía");
+        this.corrX = 30;
+        this.corrY = 500;
     }
 
     /**
@@ -143,22 +147,30 @@ public class Window extends javax.swing.JFrame {
         this.e = ingD.e;
         this.f = ingD.f;
         this.m = ingD.m;
-        this.diferenciay = (int)(this.a - 500);
-        this.diferenciax = (int)(this.b - 650);
+        this.diferenciay = (int)(this.b - 500);
+        this.diferenciax = (int)(this.a - 650);
         this.drawCanvas();
-        Point demanda = new Point();
-        demanda.x = (int)this.b;
-        demanda.y = (int)this.a;
-        this.curvaDemanda(this.redim(demanda));
+        this.curvaDemanda(this.a, this.m);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
     
-    private void curvaDemanda(Point punto){
+    private void curvaDemanda(double x, double m){
+        // x = a - bm
+        // Los datos que interesan son a y m, solo esos se debe usar para trazar la funcion
+        // cuando b = 0; x = a;
+        // cuando x = 0; b = a/m;
+        // Calculando la escala del eje x
+        // int intervalox = this.redimX((int)x)/31;
+        // Calculando la escala del eje y
+        // int intervaloy = this.redimY((int)y)/24;
+        double y = x / m;
         g.setColor(Color.red);
-        g.drawLine(30, punto.y, punto.x, 500);
+        g.drawLine((int)this.redimX(0), (int)this.redimY(y),
+                (int)this.redimX(x), (int)this.redimY(0));
+        g.setColor(Color.black);
     }
     
     private void IngresoMarginal(){
@@ -190,6 +202,14 @@ public class Window extends javax.swing.JFrame {
         punto.y = (punto.y - this.diferenciay) - 490;
         System.out.println("x: " + punto.x + "y: " + punto.y);
         return punto;
+    }
+    
+    private double redimX(double x){
+        return this.corrX + (620 / this.a)*x;
+    }
+    
+    private double redimY(double y){
+        return this.corrY - (490 / this.b)*y;
     }
     
     /**
