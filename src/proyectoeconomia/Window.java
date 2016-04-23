@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -46,8 +47,20 @@ public class Window extends javax.swing.JFrame {
         this.datos = new HashMap();
         g = this.canvas1.getGraphics();
         this.setTitle("Economía");
-        this.corrX = 30;
+        this.corrX = 100;
         this.corrY = 500;
+        
+        this.canvas1.addMouseMotionListener(new java.awt.event.MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                
+            }
+        });
     }
 
     /**
@@ -59,20 +72,69 @@ public class Window extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
         canvas1 = new java.awt.Canvas();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(918, 773));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        canvas1.setBackground(new java.awt.Color(254, 254, 254));
+        canvas1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Graficas", jPanel2);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel2.setText("Precio");
+
+        jLabel3.setText(" ");
+
+        jLabel4.setText("NP");
+
+        jLabel5.setText(" ");
+
+        jLabel6.setText("Cme");
+
+        jLabel7.setText(" ");
+
+        jLabel8.setText("Cmg");
+
+        jLabel9.setText(" ");
+
+        jLabel10.setText("Img");
+
+        jLabel11.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,19 +142,48 @@ public class Window extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Gráfica Nueva");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +192,11 @@ public class Window extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("Generar Tabla");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setText("Salir");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,11 +220,21 @@ public class Window extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 175, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -150,58 +256,136 @@ public class Window extends javax.swing.JFrame {
         this.diferenciay = (int)(this.b - 500);
         this.diferenciax = (int)(this.a - 650);
         this.drawCanvas();
-        this.curvaDemanda(this.a, this.m);
+        this.curvaDemanda();
+        this.curvaIMG();
+        this.curvaCMG();
+        this.curvaCT();
+        this.curvaIT();
+        this.curvaCME();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
     
-    private void curvaDemanda(double x, double m){
-        double y = x / m;
+    private void curvaDemanda(){
         g.setColor(Color.red);
-        this.lineaSimple(this.redimX(0), this.redimY(y), this.redimX(x), this.redimY(0));
-        g.setColor(Color.black);
-    }
-    
-    private void IngresoTotal(){
-        double fy1 = 0;
-        double fx1 = 0;
-        double fy2 = 0;
-        double fx2 = 0;
-        double p = this.a / this.m;
-        g.setColor(Color.orange);
-        for(int x = 2; x <= this.a; x+=2){
-            for(int y = 2; y <= this.b; y+=2){
-                fx1 = this.a - p * (y - 2);
-                fy1 = (x - 2) * fx1;
-                fx2 = this.a - p * y;
-                fy2 = x * fx2;
-                this.lineaSimple(redimX(x-2), redimY(fy1), redimX(x), redimY(fy2));
-            }
+        int y1 = 0;
+        int y2 = 0;
+        for (int i = 1; i <= (int) this.a; i++){
+            y1 = (int)Precio(i - 1);
+            y2 = (int)Precio(i);
+            this.lineaSimple(redimX(i - 1), redimY(y1), redimX(i), redimY(y2));
         }
         g.setColor(Color.black);
     }
     
-    private void IngresoMarginal(double y){
-        double x = (31 * this.b) / this.a;
-        g.setColor(Color.blue);
-        this.lineaSimple(this.redimX(0), this.redimY(y), this.redimX(x), this.redimY(0));
-        g.setColor(Color.black);
+    private void curvaIT(){
+        g.setColor(Color.YELLOW);
+        int y1 = 0;
+        int y2 = 0;
+        for (int x = 2; x <= (int) this.a; x++){
+            y1 = (int)IT(x - 1);
+            y2 = (int)IT(x);
+            this.lineaSimple(redimX(x - 1), redimY2(y1), redimX(x), redimY2(y2));
+        }
+        g.setColor(Color.BLACK);
+    }
+    
+    private void curvaIMG(){
+        g.setColor(Color.BLUE);
+        int y1 = 0;
+        int y2 = 0;
+        for (int x = 2; x <= (int) this.a; x++){
+            y1 = (int)IMG(x - 1, x - 2);
+            y2 = (int)IMG(x, x - 1);
+            if(y2 < 0)
+               break;
+            this.lineaSimple(redimX(x - 1), redimY(y1), redimX(x), redimY(y2));
+            
+        }
+        g.setColor(Color.BLACK);
+    }
+    
+    private void curvaCMG(){
+        g.setColor(Color.GREEN);
+        int y1 = 0;
+        int y2 = 0;
+        for (int x = 2; x <= (int) this.a; x++){
+            y1 = (int)CMG(x - 1);
+            y2 = (int)CMG(x);
+            this.lineaSimple(redimX(x - 1), redimY(y1), redimX(x), redimY(y2));
+        }
+        g.setColor(Color.BLACK);
+    }
+    
+    private void curvaCME(){
+        g.setColor(Color.ORANGE);
+        int y1 = 0;
+        int y2 = 0;
+        for (int x = 2; x <= (int) this.a; x++){
+            y1 = (int)CME(x - 1);
+            y2 = (int)CME(x);
+            this.lineaSimple(redimX(x - 1), redimY(y1), redimX(x), redimY(y2));
+        }
+        g.setColor(Color.BLACK);
+    }
+    
+    private void curvaCT(){
+        g.setColor(Color.MAGENTA);
+        int y1 = 0;
+        int y2 = 0;
+        for (int x = 1; x <= (int) this.a; x++){
+            y1 = (int)CT(x - 1);
+            y2 = (int)CT(x);
+            this.lineaSimple(redimX(x - 1), redimY(y1), redimX(x), redimY(y2));
+        }
+        g.setColor(Color.BLACK);
+    }
+    
+    private double Precio(double x){
+        return (this.a - x) / this.m;
+    }
+    
+    private double NP(double y){
+        return this.a - (y * this.m);
+    }
+    
+    private double IT(double x){
+        return x * this.Precio(x);
+    }
+    
+    private double CT(double x){
+        return (c * (Math.pow(x,3)) - (d * Math.pow(x,2)) + (e * x) + f);
+    }
+    
+    private double CME(double x){
+        return c*(Math.pow(x,2))-(d*x)+(e) + (f/x);
+    }
+    
+    private double CMG(double x){
+        return 3*c*(Math.pow(x,2))-2*(d*x)+(e);
+    }
+
+    private double IMG(double x1, double x2){
+        return (this.IT(x2) - this.IT(x1))/(x2 - x1);
     }
     
     private void lineaSimple(double x1, double y1, double x2, double y2){
         g.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
-        System.out.println("x1:" + (int)x1 + " y1:" + (int)y1 + " x2:" + (int)x2 + " y2:" + (int)y2);
+    }
+    
+    private void punto(double x, double y){
+        g.drawLine((int)x, (int)y, (int)x, (int)y);
     }
     
     private void drawCanvas(){
         // Dibujando el plano de coordenadas
         g.setColor(Color.black);        
         // Dibujando el eje y
-        g.drawLine(30, 10, 30, 500);
+        g.drawLine(this.corrX, 10, this.corrX, 500);
         // Dibujando el eje x
-        g.drawLine(30, 500, 650, 500);
+        g.drawLine(this.corrX, 500, this.corrX + 650, 500);
     }
     
     private double redimX(double x){
@@ -209,7 +393,11 @@ public class Window extends javax.swing.JFrame {
     }
     
     private double redimY(double y){
-        return this.corrY - (490 / (this.a/2 * this.b*2))*y;
+        return this.corrY - (490 / this.b)*y;
+    }
+    
+    private double redimY2(double y){
+        return this.corrY - (490 / ((this.b/2) * (this.a/2)))*y;
     }
     
     /**
@@ -249,13 +437,26 @@ public class Window extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 
 }

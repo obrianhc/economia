@@ -71,9 +71,21 @@ public class IngresarDatos extends javax.swing.JDialog {
 
         jLabel8.setText("m:");
 
+        jTextField1.setText("175");
+
+        jTextField2.setText("875");
         jTextField2.setToolTipText("");
 
+        jTextField3.setText("0.145");
+
+        jTextField4.setText("13");
+
+        jTextField5.setText("440");
         jTextField5.setToolTipText("");
+
+        jTextField6.setText("14000");
+
+        jTextField7.setText("0.2");
 
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
