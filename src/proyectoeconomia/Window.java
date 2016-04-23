@@ -47,18 +47,34 @@ public class Window extends javax.swing.JFrame {
         this.datos = new HashMap();
         g = this.canvas1.getGraphics();
         this.setTitle("Economía");
-        this.corrX = 100;
+        this.corrX = 50;
         this.corrY = 500;
         
         this.canvas1.addMouseMotionListener(new java.awt.event.MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                
+                try{
+                    String clave = e.getX()+","+e.getY();
+                    if(datos.containsKey(clave)){
+                        Dato dato = (Dato)datos.get(clave);
+                        jLabel3.setText(Double.toString(dato.Precio));
+                        jLabel5.setText(Double.toString(dato.NP));
+                        jLabel7.setText(Double.toString(dato.CME));
+                        jLabel9.setText(Double.toString(dato.CMG));
+                        jLabel11.setText(Double.toString(dato.Img));
+                        jLabel12.setText(Double.toString(dato.IT));
+                        jLabel14.setText(Double.toString(dato.CT));
+                        jLabel16.setText(Double.toString(dato.CEF));
+                        jLabel18.setText(Double.toString(dato.GT));
+                    }
+                } catch(Exception ex){
+                    System.out.println(ex.getMessage());
+                }
             }
         });
     }
@@ -86,6 +102,14 @@ public class Window extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -120,21 +144,37 @@ public class Window extends javax.swing.JFrame {
 
         jLabel3.setText(" ");
 
-        jLabel4.setText("NP");
+        jLabel4.setText("Cantidad Demandada");
 
         jLabel5.setText(" ");
 
-        jLabel6.setText("Cme");
+        jLabel6.setText("Costo Medio");
 
         jLabel7.setText(" ");
 
-        jLabel8.setText("Cmg");
+        jLabel8.setText("Costo Marginal");
 
         jLabel9.setText(" ");
 
-        jLabel10.setText("Img");
+        jLabel10.setText("Ingreso Marginal");
 
         jLabel11.setText(" ");
+
+        jLabel1.setText("Ingreso Total");
+
+        jLabel12.setText(" ");
+
+        jLabel13.setText("Costo Total");
+
+        jLabel14.setText(" ");
+
+        jLabel15.setText("Coeficiente de Elasticidad");
+
+        jLabel16.setText(" ");
+
+        jLabel17.setText("Ganancia Total");
+
+        jLabel18.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,8 +192,16 @@ public class Window extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addContainerGap(190, Short.MAX_VALUE))
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,23 +210,39 @@ public class Window extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -230,10 +294,8 @@ public class Window extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 175, Short.MAX_VALUE)))
+                    .addComponent(jTabbedPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -296,13 +358,24 @@ public class Window extends javax.swing.JFrame {
         g.setColor(Color.BLUE);
         int y1 = 0;
         int y2 = 0;
+        Dato dato;
         for (int x = 2; x <= (int) this.a; x++){
+            dato = new Dato();
             y1 = (int)IMG(x - 1, x - 2);
             y2 = (int)IMG(x, x - 1);
             if(y2 < 0)
                break;
             this.lineaSimple(redimX(x - 1), redimY(y1), redimX(x), redimY(y2));
-            
+            dato.Precio = this.Precio(x);
+            dato.NP = x;
+            dato.Img = y2;
+            dato.CEF = this.CEF(x);
+            dato.IT = this.IT(x);
+            dato.CT = this.CT(x);
+            dato.GT = this.GT(x);
+            dato.CME = this.CME(x);
+            dato.CMG = this.CMG(x);
+            this.datos.put((int)redimX(x) + "," + (int)redimY(y2), dato);
         }
         g.setColor(Color.BLACK);
     }
@@ -343,11 +416,15 @@ public class Window extends javax.swing.JFrame {
         g.setColor(Color.BLACK);
     }
     
+    private double GT(double x){
+        return (Precio(x) * x) - CT(x);
+    }
+    
     private double Precio(double x){
         return (this.a - x) / this.m;
     }
     
-    private double NP(double y){
+    private double Q(double y){
         return this.a - (y * this.m);
     }
     
@@ -371,6 +448,10 @@ public class Window extends javax.swing.JFrame {
         return (this.IT(x2) - this.IT(x1))/(x2 - x1);
     }
     
+    private double CEF(double x){
+        return ((x-(x-1))/(Precio(x) - Precio(x-1)))*(Precio(x)/x);
+    }
+    
     private void lineaSimple(double x1, double y1, double x2, double y2){
         g.drawLine((int)x1, (int)y1, (int)x2, (int)y2);
     }
@@ -386,6 +467,21 @@ public class Window extends javax.swing.JFrame {
         g.drawLine(this.corrX, 10, this.corrX, 500);
         // Dibujando el eje x
         g.drawLine(this.corrX, 500, this.corrX + 650, 500);
+        // Etiquetando el eje X
+        int intervaloy = 0;
+        int intervalox = 0;
+        for (int x = 0; x <= (this.corrX + 650); x+=(650/10)){
+            String cadena = Integer.toString(intervalox);
+            char caracteres[] = cadena.toCharArray();
+            g.drawChars(caracteres, 0, caracteres.length, corrX + x, 515);
+            intervalox += (int)this.a / 9;
+        }
+        for (int y = 500; y >= 10; y-=(490/10)){
+            String cadena = Integer.toString(intervaloy);
+            char caracteres[] = cadena.toCharArray();
+            g.drawChars(caracteres, 0, caracteres.length, 10, y);
+            intervaloy += (int)this.b / 9;
+        }
     }
     
     private double redimX(double x){
@@ -437,8 +533,16 @@ public class Window extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

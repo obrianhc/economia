@@ -10,13 +10,13 @@ package proyectoeconomia;
  * @author asus
  */
 public class Dato {
-    public double Precio;
-    public double NP;
-    public double Img;
-    public double CEF;
-    public double IT;
-    public double CT;
-    public double GT;
-    public double CME;
-    public double CMG;
+    public double Precio; // 2
+    public double NP; // 4
+    public double Img; // 10
+    public double CEF; // 16
+    public double IT; // 12
+    public double CT; //14
+    public double GT; // 18
+    public double CME; // 6
+    public double CMG; // 8
 }
